@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Demo QA" parallel="false">
+
+    <listeners>
+        <listener class-name="Reports.TestListener"/>
+    </listeners>
+
+    <test name="Demo">
+        <classes>
+            <class name="TestCase.ForToElementsTest"/>
+        </classes>
+    </test>
+
+</suite>

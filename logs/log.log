@@ -1,0 +1,207 @@
+[INFO ] 26-10-2025 08:27:26 [main] Log -  Steep 1:  Click vaof dong menu Elements 
+[INFO ] 26-10-2025 08:27:29 [main] Log -  Steep 2:  Click vao  menu trai   radio button man hinh elements   
+[INFO ] 26-10-2025 08:27:29 [main] Log -  Steep 3:  Click vao radoi butto chon den no vaf ko chon dc  
+[INFO ] 26-10-2025 09:25:05 [main] Log - Step 1: Click menu Elements
+[INFO ] 26-10-2025 09:25:08 [main] Log - Step 2: Click menu trái 'Web Tables'
+[INFO ] 26-10-2025 09:25:09 [main] Log - Step 3: Lấy email của người có First Name = 'Cierra'
+[INFO ] 26-10-2025 09:25:09 [main] Log - Step 4: Verify email khớp dữ liệu mong đợi
+[INFO ] 26-10-2025 09:32:19 [main] Log - Step 1: Click menu Elements
+[INFO ] 26-10-2025 09:33:13 [main] Log - Step 1: Click menu Elements
+[INFO ] 26-10-2025 09:33:17 [main] Log - Step 2: Click menu trái 'Web Tables'
+[INFO ] 26-10-2025 09:33:17 [main] Log - Step 3: Lấy email của người có First Name = 'Cierra'
+[INFO ] 26-10-2025 09:33:18 [main] Log - Step 4: Verify email khớp dữ liệu mong đợi
+[INFO ] 26-10-2025 09:40:40 [main] Log - Step 1: Click menu Elements
+[INFO ] 26-10-2025 09:40:43 [main] Log - Step 2: Click menu trái 'Web Tables'
+[INFO ] 26-10-2025 09:40:44 [main] Log - Step 3: Lấy email của người có First Name = 'Cierra'
+[INFO ] 26-10-2025 09:40:46 [main] Log - Step 4: Verify email khớp dữ liệu mong đợi
+[INFO ] 26-10-2025 10:01:51 [main] Log - Step 1: Click menu 'Elements'
+[INFO ] 26-10-2025 10:01:54 [main] Log - Step 2: Click 'Web Tables' ở menu bên trái
+[INFO ] 26-10-2025 10:01:55 [main] Log - Step 3: Click nút Edit của hàng có Last Name = 'Alden'
+[INFO ] 26-10-2025 15:05:39 [main] Log - Step 1: Click menu 'Elements'
+[INFO ] 26-10-2025 15:05:42 [main] Log - Step 2: Click 'Web Tables' ở menu bên trái
+[INFO ] 26-10-2025 15:05:42 [main] Log - Step 3: Click nút Edit của hàng có Last Name = 'Alden'
+[INFO ] 26-10-2025 15:05:42 [main] Log - Tìm hàng có Last Name = 'Alden'
+[INFO ] 26-10-2025 15:34:12 [main] Log - Step 1: Click menu 'Elements'
+[INFO ] 26-10-2025 15:34:16 [main] Log - Step 2: Click 'Web Tables' ở menu bên trái
+[INFO ] 26-10-2025 15:34:16 [main] Log - Step 3: Click nút Edit của hàng có Last Name = 'Alden'
+[INFO ] 26-10-2025 15:34:16 [main] Log - Tìm hàng có Last Name = 'Alden'
+[INFO ] 26-10-2025 15:34:18 [main] Log - Đã mở form Edit cho hàng có Last Name: Alden
+[INFO ] 26-10-2025 15:46:40 [main] Log - Step 1: Click menu 'Elements'
+[INFO ] 26-10-2025 15:46:44 [main] Log - Step 2: Click 'Web Tables' ở menu bên trái
+[INFO ] 26-10-2025 15:46:44 [main] Log - Step 3: Lấy tất cả các hàng sau hàng có Age = 39
+[INFO ] 26-10-2025 15:46:44 [main] Log - Tìm hàng có Age = '39'
+[INFO ] 26-10-2025 15:46:44 [main] Log - Tổng số hàng sau Age = 39: 9
+[INFO ] 26-10-2025 15:46:44 [main] Log - Hàng thứ 1 sau Age 39: Alden
+Cantrell
+45
+alden@example.com
+12000
+Compliance
+[INFO ] 26-10-2025 15:46:44 [main] Log - Hàng thứ 2 sau Age 39: Kierra
+Gentry
+29
+kierra@example.com
+2000
+Legal
+[INFO ] 26-10-2025 15:46:44 [main] Log - Hàng thứ 3 sau Age 39: 
+[INFO ] 26-10-2025 15:46:44 [main] Log - Hàng thứ 4 sau Age 39: 
+[INFO ] 26-10-2025 15:46:44 [main] Log - Hàng thứ 5 sau Age 39: 
+[INFO ] 26-10-2025 15:46:44 [main] Log - Hàng thứ 6 sau Age 39: 
+[INFO ] 26-10-2025 15:46:44 [main] Log - Hàng thứ 7 sau Age 39: 
+[INFO ] 26-10-2025 15:46:44 [main] Log - Hàng thứ 8 sau Age 39: 
+[INFO ] 26-10-2025 15:46:44 [main] Log - Hàng thứ 9 sau Age 39: 
+[INFO ] 26-10-2025 15:46:44 [main] Log - Step 4: In ra danh sách hàng sau Age=39
+[INFO ] 26-10-2025 15:46:44 [main] Log - Step 5: Verify danh sách không rỗng
+[INFO ] 26-10-2025 15:49:54 [main] Log - Step 1: Click menu 'Elements'
+[INFO ] 26-10-2025 15:49:57 [main] Log - Step 2: Click 'Web Tables' ở menu bên trái
+[INFO ] 26-10-2025 15:49:57 [main] Log - Step 3: Lấy tất cả các hàng sau hàng có Age = 39
+[INFO ] 26-10-2025 15:49:57 [main] Log - Tìm hàng có Age = '39'
+[INFO ] 26-10-2025 15:49:58 [main] Log - Tổng số hàng sau Age = 39: 9
+[INFO ] 26-10-2025 15:49:58 [main] Log - Hàng thứ 1 sau Age 39: Alden
+Cantrell
+45
+alden@example.com
+12000
+Compliance
+[INFO ] 26-10-2025 15:49:58 [main] Log - Hàng thứ 2 sau Age 39: Kierra
+Gentry
+29
+kierra@example.com
+2000
+Legal
+[INFO ] 26-10-2025 15:49:58 [main] Log - Hàng thứ 3 sau Age 39: 
+[INFO ] 26-10-2025 15:49:58 [main] Log - Hàng thứ 4 sau Age 39: 
+[INFO ] 26-10-2025 15:49:58 [main] Log - Hàng thứ 5 sau Age 39: 
+[INFO ] 26-10-2025 15:49:58 [main] Log - Hàng thứ 6 sau Age 39: 
+[INFO ] 26-10-2025 15:49:58 [main] Log - Hàng thứ 7 sau Age 39: 
+[INFO ] 26-10-2025 15:49:58 [main] Log - Hàng thứ 8 sau Age 39: 
+[INFO ] 26-10-2025 15:49:58 [main] Log - Hàng thứ 9 sau Age 39: 
+[INFO ] 26-10-2025 15:49:59 [main] Log - Step 4: In ra danh sách hàng sau Age=39
+[INFO ] 26-10-2025 15:49:59 [main] Log - Step 5: Verify danh sách không rỗng
+[INFO ] 26-10-2025 16:22:33 [main] Log - Step 1: Click menu 'Elements'
+[INFO ] 26-10-2025 16:22:36 [main] Log - Step 2: Click 'Web Tables' ở menu bên trái
+[INFO ] 26-10-2025 16:22:36 [main] Log - Step 3: Double Click vào nút 'Double Click Me'
+[INFO ] 26-10-2025 16:22:36 [main] Log - Thực hiện double click vào nút 'Double Click Me'
+[INFO ] 26-10-2025 16:22:38 [main] Log - Step 4: Verify thông báo xuất hiện
+[INFO ] 26-10-2025 16:22:38 [main] Log - Thông báo hiển thị: You have done a double click
+[INFO ] 26-10-2025 16:32:06 [main] Log - Step 1: Click menu 'Elements'
+[INFO ] 26-10-2025 16:32:09 [main] Log - Step 2: Click 'Links' ở menu bên trái
+[INFO ] 26-10-2025 16:32:10 [main] Log - Step 3: Click link 'Created'
+[INFO ] 26-10-2025 16:32:10 [main] Log - Click link 'Created'
+[INFO ] 26-10-2025 17:02:26 [main] Log - Step 1: Click menu 'Elements'
+[INFO ] 26-10-2025 17:02:29 [main] Log - Step 2: Click 'Links' ở menu bên trái
+[INFO ] 26-10-2025 17:02:30 [main] Log - Step 3: Click link 'Created'
+[INFO ] 26-10-2025 17:05:58 [main] Log - Step 1: Click menu 'Elements'
+[INFO ] 26-10-2025 22:20:41 [main] Log - Step 1: Click menu 'Elements'
+[INFO ] 26-10-2025 22:20:44 [main] Log - Step 2: Click 'Links' ở menu bên trái
+[INFO ] 26-10-2025 22:20:44 [main] Log - Step 3: Click link 'Created'
+[INFO ] 26-10-2025 22:20:44 [main] Log - Click link 'Created'
+[INFO ] 26-10-2025 22:20:44 [main] Log - Ẩn các iframe quảng cáo trước khi click link
+[INFO ] 26-10-2025 22:58:55 [main] Log - Step 1: Click menu Elements
+[INFO ] 26-10-2025 22:58:58 [main] Log - Step 2: Click menu trái 'Web Tables'
+[INFO ] 26-10-2025 22:58:58 [main] Log - Step 3: Lấy email của người có First Name = 'Cierra'
+[INFO ] 26-10-2025 22:59:01 [main] Log - Step 4: Verify email khớp dữ liệu mong đợi
+[INFO ] 26-10-2025 23:19:59 [main] Log - Step 1: Click menu Elements
+[INFO ] 26-10-2025 23:20:03 [main] Log - Step 2: Click menu tr�i 'Web Tables'
+[INFO ] 26-10-2025 23:20:03 [main] Log - Step 3: L?y email c?a ng??i c� First Name = 'Cierra'
+[INFO ] 26-10-2025 23:20:05 [main] Log - Step 4: Verify email kh?p d? li?u mong ??i
+[INFO ] 26-10-2025 23:24:40 [main] Log -  Steep 1:  Click vaof dong menu Elements 
+[INFO ] 26-10-2025 23:24:44 [main] Log -  Steep 2:  Click vao  menu trai   radio button man hinh elements   
+[INFO ] 26-10-2025 23:24:44 [main] Log -  Steep 3:  Click vao radoi butto chon den no vaf ko chon dc  
+[INFO ] 26-10-2025 23:25:57 [main] Log - Step 1: Click menu Elements
+[INFO ] 26-10-2025 23:26:00 [main] Log - Step 2: Click menu tr�i 'Web Tables'
+[INFO ] 26-10-2025 23:26:00 [main] Log - Step 3: L?y email c?a ng??i c� First Name = 'Cierra'
+[INFO ] 26-10-2025 23:26:03 [main] Log - Step 4: Verify email kh?p d? li?u mong ??i
+[INFO ] 26-10-2025 23:26:49 [main] Log - Step 1: Click menu 'Elements'
+[INFO ] 26-10-2025 23:26:53 [main] Log - Step 2: Click 'Web Tables' ? menu b�n tr�i
+[INFO ] 26-10-2025 23:26:53 [main] Log - Step 3: Click n�t Edit c?a h�ng c� Last Name = 'Alden'
+[INFO ] 26-10-2025 23:26:53 [main] Log - T�m h�ng c� Last Name = 'Alden'
+[INFO ] 26-10-2025 23:26:55 [main] Log - ?� m? form Edit cho h�ng c� Last Name: Alden
+[INFO ] 26-10-2025 23:26:59 [main] Log - Step 1: Click menu 'Elements'
+[INFO ] 26-10-2025 23:27:37 [main] Log - Step 2: Click 'Web Tables' ? menu b�n tr�i
+[INFO ] 26-10-2025 23:27:38 [main] Log - Step 3: L?y t?t c? c�c h�ng sau h�ng c� Age = 39
+[INFO ] 26-10-2025 23:27:38 [main] Log - T�m h�ng c� Age = '39'
+[INFO ] 26-10-2025 23:27:38 [main] Log - T?ng s? h�ng sau Age = 39: 9
+[INFO ] 26-10-2025 23:27:38 [main] Log - H�ng th? 1 sau Age 39: Alden
+Cantrell
+45
+alden@example.com
+12000
+Compliance
+[INFO ] 26-10-2025 23:27:38 [main] Log - H�ng th? 2 sau Age 39: Kierra
+Gentry
+29
+kierra@example.com
+2000
+Legal
+[INFO ] 26-10-2025 23:27:38 [main] Log - H�ng th? 3 sau Age 39: 
+[INFO ] 26-10-2025 23:27:38 [main] Log - H�ng th? 4 sau Age 39: 
+[INFO ] 26-10-2025 23:27:38 [main] Log - H�ng th? 5 sau Age 39: 
+[INFO ] 26-10-2025 23:27:38 [main] Log - H�ng th? 6 sau Age 39: 
+[INFO ] 26-10-2025 23:27:38 [main] Log - H�ng th? 7 sau Age 39: 
+[INFO ] 26-10-2025 23:27:38 [main] Log - H�ng th? 8 sau Age 39: 
+[INFO ] 26-10-2025 23:27:38 [main] Log - H�ng th? 9 sau Age 39: 
+[INFO ] 26-10-2025 23:27:39 [main] Log - Step 4: In ra danh s�ch h�ng sau Age=39
+[INFO ] 26-10-2025 23:27:39 [main] Log - Step 5: Verify danh s�ch kh�ng r?ng
+[INFO ] 26-10-2025 23:27:53 [main] Log - Step 1: Click menu 'Elements'
+[INFO ] 26-10-2025 23:27:57 [main] Log - Step 2: Click 'Web Tables' ? menu b�n tr�i
+[INFO ] 26-10-2025 23:27:57 [main] Log - Step 3: Double Click v�o n�t 'Double Click Me'
+[INFO ] 26-10-2025 23:27:57 [main] Log - Th?c hi?n double click v�o n�t 'Double Click Me'
+[INFO ] 26-10-2025 23:27:59 [main] Log - Step 4: Verify th�ng b�o xu?t hi?n
+[INFO ] 26-10-2025 23:27:59 [main] Log - Th�ng b�o hi?n th?: You have done a double click
+[INFO ] 26-10-2025 23:28:48 [main] Log - Step 1: Click menu 'Elements'
+[INFO ] 26-10-2025 23:28:51 [main] Log - Step 2: Click 'Links' ? menu b�n tr�i
+[INFO ] 26-10-2025 23:28:51 [main] Log - Step 3: Click link 'Created'
+[INFO ] 26-10-2025 23:28:51 [main] Log - Click link 'Created'
+[INFO ] 26-10-2025 23:28:51 [main] Log - ?n c�c iframe qu?ng c�o tr??c khi click link
+[INFO ] 27-10-2025 06:40:13 [main] Log - Step 1: Click menu 'Elements'
+[INFO ] 27-10-2025 06:40:16 [main] Log - Step 2: Click 'Upload and Download' ở menu bên trái
+[INFO ] 27-10-2025 06:40:17 [main] Log - Step 3: Click 'Choose File' và chọn file C:\temp\logo.png
+[INFO ] 27-10-2025 06:40:17 [main] Log - Upload file từ đường dẫn: C:\temp\logo.png
+[INFO ] 27-10-2025 06:41:54 [main] Log - Step 1: Click menu 'Elements'
+[INFO ] 27-10-2025 06:41:57 [main] Log - Step 2: Click 'Upload and Download' ở menu bên trái
+[INFO ] 27-10-2025 06:41:57 [main] Log - Step 3: Click 'Choose File' và chọn file C:\temp\logo.png
+[INFO ] 27-10-2025 06:41:57 [main] Log - Upload file từ đường dẫn: C:\temp\logo.png
+[INFO ] 27-10-2025 06:46:32 [main] Log - Step 1: Click menu 'Elements'
+[INFO ] 27-10-2025 06:46:35 [main] Log - Step 2: Click 'Upload and Download' ở menu bên trái
+[INFO ] 27-10-2025 06:46:35 [main] Log - Step 3: Click 'Choose File' và chọn file C:\temp\logo.png
+[INFO ] 27-10-2025 06:46:35 [main] Log - Upload file từ đường dẫn: C:\temp\logo.png
+[INFO ] 27-10-2025 07:11:55 [main] Log - Step 1: Click menu 'Elements'
+[INFO ] 27-10-2025 07:11:59 [main] Log - Step 2: Click 'Dynamic Properties' ở menu bên trái
+[INFO ] 27-10-2025 07:11:59 [main] Log - Step 3: Kiểm tra nút ban đầu bị disabled
+[INFO ] 27-10-2025 07:11:59 [main] Log - Kiểm tra trạng thái ban đầu của nút 'Will enable 5 seconds'
+[INFO ] 27-10-2025 07:11:59 [main] Log - Step 4: Chờ 6s và kiểm tra lại trạng thái enabled
+[INFO ] 27-10-2025 07:11:59 [main] Log - Chờ nút 'Will enable 5 seconds' chuyển sang trạng thái enabled sau 6s
+[INFO ] 27-10-2025 07:14:53 [main] Log - Step 1: Click menu 'Elements'
+[INFO ] 27-10-2025 07:14:56 [main] Log - Step 2: Click 'Dynamic Properties' ở menu bên trái
+[INFO ] 27-10-2025 07:14:57 [main] Log - Step 3: Kiểm tra nút ban đầu bị disabled
+[INFO ] 27-10-2025 07:14:57 [main] Log - Kiểm tra trạng thái ban đầu của nút 'Will enable 5 seconds'
+[INFO ] 27-10-2025 07:14:57 [main] Log - Step 4: Chờ 6s và kiểm tra lại trạng thái enabled
+[INFO ] 27-10-2025 07:14:57 [main] Log - Chờ nút 'Will enable 5 seconds' chuyển sang trạng thái enabled sau 6s
+[INFO ] 27-10-2025 07:15:02 [main] Log - PASS: Nút ban đầu disabled và được enable sau 5s
+[INFO ] 27-10-2025 08:12:18 [main] Log - Step 1: Mở menu 'Alerts, Frame & Windows'
+[INFO ] 27-10-2025 08:12:22 [main] Log - Step 2: Click submenu 'Alerts'
+[INFO ] 27-10-2025 08:12:22 [main] Log - Step 3: Click 'Click me' để mở alert đơn giản
+[INFO ] 27-10-2025 08:12:22 [main] Log - Click 'Click me' để mở alert đơn giản
+[INFO ] 27-10-2025 08:12:23 [main] Log - Step 4: Accept alert
+[INFO ] 27-10-2025 08:12:23 [main] Log - Alert hiển thị với text: You clicked a button
+[INFO ] 27-10-2025 08:12:23 [main] Log - Đã Accept alert thành công
+[INFO ] 27-10-2025 08:12:23 [main] Log - Step 5: Verify alert đã biến mất
+[INFO ] 27-10-2025 08:20:52 [main] Log - Step 1: Mở menu Forms > Practice Form
+[INFO ] 27-10-2025 08:20:55 [main] Log - Step 2: Điền form hợp lệ
+[INFO ] 27-10-2025 08:20:55 [main] Log - Điền First Name
+[INFO ] 27-10-2025 08:20:56 [main] Log - Điền Last Name
+[INFO ] 27-10-2025 08:20:57 [main] Log - Điền Email
+[INFO ] 27-10-2025 08:20:57 [main] Log - Chọn Gender: Male
+[INFO ] 27-10-2025 08:20:57 [main] Log - Điền Mobile
+[INFO ] 27-10-2025 08:20:58 [main] Log - Step 3: Submit form
+[INFO ] 27-10-2025 08:20:58 [main] Log - Click nút Submit
+[INFO ] 27-10-2025 08:21:00 [main] Log - Step 4: Verify modal hiển thị và chứa dữ liệu nhập
+[INFO ] 27-10-2025 08:21:00 [main] Log - Kiểm tra modal hiển thị sau khi submit
+[INFO ] 27-10-2025 08:21:00 [main] Log - Kiểm tra modal chứa đúng dữ liệu đã nhập
+[INFO ] 27-10-2025 08:52:36 [main] Log - Step 1: Mở menu Widgets > Date Picker
+[INFO ] 27-10-2025 08:52:40 [main] Log - Step 2: Mở picker và chọn ngày 1 (đầu tháng)
+[INFO ] 27-10-2025 08:52:40 [main] Log - Mở Date Picker
+[INFO ] 27-10-2025 08:56:52 [main] Log - Step 1: Mở menu Widgets > Date Picker
+[INFO ] 27-10-2025 08:56:55 [main] Log - Step 2: Mở picker và chọn ngày 1 (đầu tháng)
+[INFO ] 27-10-2025 08:56:55 [main] Log - Mở Date Picker
