@@ -26,6 +26,7 @@ public class ForToElementsTest extends BaseTest {
     private UploadDownloadAction uploadDownload;
     private AlertsAction alertsAction;
      private DataPickerAction picker ;
+     private PracticeFormAction form ;
 
     @BeforeMethod(alwaysRun = true)
     public void init() {
@@ -40,16 +41,14 @@ public class ForToElementsTest extends BaseTest {
        uploadfile = new UploadDownloadAction(driver);
        alertsAction = new AlertsAction(getDriver());
        picker =new DataPickerAction();
+       form = new PracticeFormAction(getDriver());
 
     }
     @Test(priority = 1, description = "DQ-RB-002|Elements > Radio Button | NEGATIVE_DISABLED")
     public void DQ_RB_002() {
         Log.info(" Steep 1:  Click vaof dong menu Elements ");
-        // 1. Click "Elements" ở trang chủ
         homePage.clickOnMenu("Elements");
         Log.info(" Steep 2:  Click vao  menu trai   radio button man hinh elements   ");
-
-        // 2. Click "Radio Button" ở menu bên trái
         menuLeft.clickOnMenuLeft("Radio Button");
         Log.info(" Steep 3:  Click vao radoi butto chon den no vaf ko chon dc  ");
         boolean isNoDisabled = radiobutton.isNoRadioDisabled();
@@ -59,75 +58,61 @@ public class ForToElementsTest extends BaseTest {
         Assert.assertEquals(actualResult, "", "Expected no result to be shown when 'No' radio is disabled!");
 
    }
-    @Test(groups = " DQ-WT-001",priority = 2,description = "Elements > Web Tables |LOCATOR_FOLLOWING_SIBLING")
-    public void DQ_WT_001(){
-        Log.info("Step 1: Click menu Elements");
-        homePage.clickOnMenu("Elements");
-
-        Log.info("Step 2: Click menu trái 'Web Tables'");
-        menuLeft.clickOnMenuLeft("Web Tables");
-
-        Log.info("Step 3: Lấy email của người có First Name = 'Cierra'");
-        WebTablesAction webTable = new WebTablesAction(driver);
-        String actualEmail = webTable.getEmailByFirstName("Cierra");
-
-        Log.info("Step 4: Verify email khớp dữ liệu mong đợi");
-        String expectedEmail = "cierra@example.com";
-        Assert.assertEquals(actualEmail, expectedEmail,
-                "Email của 'Cierra' không khớp với dữ liệu mong đợi!");
-    }
+   @Test(groups = {"DQ-WT-001"}, priority = 2, description = "Elements > Web Tables | LOCATOR_FOLLOWING_SIBLING")
+public void DQ_WT_001() {
+    Log.info("Step 1: Click menu Elements");
+    homePage.clickOnMenu("Elements");
+    Log.info("Step 2: Click menu trái 'Web Tables'");
+    menuLeft.clickOnMenuLeft("Web Tables");
+    Log.info("Step 3: Lấy email của người có First Name = 'Cierra'");
+    WebTablesAction webTable = new WebTablesAction(driver);
+    String actualEmail = webTable.getEmailByFirstName("Cierra");
+    Log.info("Step 4: Verify email khớp dữ liệu mong đợi");
+    String expectedEmail = "cierra@example.com";
+    Assert.assertEquals(actualEmail, expectedEmail,
+            "Email của 'Cierra' không khớp với dữ liệu mong đợi!");
+}
     @Test(priority = 3, description = "DQ-WT-002 | Web Tables | Verify Edit by Last Name")
     public void DQ_WT_002() {
         Log.info("Step 1: Click menu 'Elements'");
         homePage.clickOnMenu("Elements");
-
         Log.info("Step 2: Click 'Web Tables' ở menu bên trái");
         menuLeft.clickOnMenuLeft("Web Tables");
-
         Log.info("Step 3: Click nút Edit của hàng có Last Name = 'Alden'");
         webTable.clickEditByLastName("Alden");
-
-//        Log.info("Step 4: Verify form Edit hiển thị đúng dữ liệu của Alden");
-//        boolean isDisplayed = webTable.clickEditByLastName("Alden");
-//
-//        Assert.assertTrue(isDisplayed, " Form Edit không hiển thị đúng dữ liệu của Alden!";
+        Log.info("Step 4: Verify form Edit hiển thị đúng");
+        Assert.assertTrue(webTable.isEditFormDisplayed(), "Form Edit không hiển thị!");
     }
-    @Test(priority = 4, description = "DQ-WT-003 | Web Tables | Verify all rows after Age=39")
-    public void DQ_WT_003() {
-        Log.info("Step 1: Click menu 'Elements'");
-        homePage.clickOnMenu("Elements");
 
-        Log.info("Step 2: Click 'Web Tables' ở menu bên trái");
-        menuLeft.clickOnMenuLeft("Web Tables");
-
-        Log.info("Step 3: Lấy tất cả các hàng sau hàng có Age = 39");
-        List<String> followingRows = webTable.getRowsAfterAge("39");
-
-        Log.info("Step 4: In ra danh sách hàng sau Age=39");
-        for (String row : followingRows) {
-            System.out.println("-> " + row);
-        }
-
-        Log.info("Step 5: Verify danh sách không rỗng");
-        Assert.assertTrue(followingRows.size() > 0, "Không tìm thấy hàng nào sau Age = 39!");
+   @Test(priority = 4, description = "DQ-WT-003 | Web Tables | Verify all rows after Age=39")
+public void DQ_WT_003() {
+    Log.info("Step 1: Click menu 'Elements'");
+    homePage.clickOnMenu("Elements");
+    Log.info("Step 2: Click 'Web Tables' ở menu bên trái");
+    menuLeft.clickOnMenuLeft("Web Tables");
+    Log.info("Step 3: Lấy tất cả các hàng sau hàng có Age = 39");
+    List<String> followingRows = webTable.getRowsAfterAge("39");
+    Log.info("Step 4: In ra danh sách hàng sau Age=39");
+    for (String row : followingRows) {
+        System.out.println("-> " + row);
     }
+
+    Log.info("Step 5: Verify danh sách không rỗng");
+    Assert.assertTrue(followingRows.size() > 0, "Không tìm thấy hàng nào sau Age = 39!");
+}
     @Test(priority = 5, description = "DQ-BTN-001|Buttons|Verify Double Click button")
     public void DQ_BTN_001() {
         Log.info("Step 1: Click menu 'Elements'");
         homePage.clickOnMenu("Elements");
-
-        Log.info("Step 2: Click 'Web Tables' ở menu bên trái");
+        Log.info("Step 2: Click 'Buttons' ở menu bên trái");
         menuLeft.clickOnMenuLeft("Buttons");
-
         Log.info("Step 3: Double Click vào nút 'Double Click Me'");
         buttons.doubleClickButton();
-
         Log.info("Step 4: Verify thông báo xuất hiện");
         String actualMessage = buttons.getDoubleClickMessage();
         Log.info("Thông báo hiển thị: " + actualMessage);
-
         Assert.assertEquals(actualMessage, "You have done a double click",
-                " Thông báo double click không đúng!");
+                "Thông báo double click không đúng!");
     }
     @Test(priority = 6, description = "DQ-LK-001|LINKS|Verify Double Click button")
 
@@ -150,14 +135,12 @@ public class ForToElementsTest extends BaseTest {
 
         Log.info("Step 2: Click 'Upload and Download' ở menu bên trái");
         menuLeft.clickOnMenuLeft("Upload and Download");
-
-        Log.info("Step 3: Click 'Choose File' và chọn file C:\\temp\\logo.png");
-        String filePath = "C:\\temp\\logo.png";  // đường dẫn tuyệt đối
-        uploadfile.uploadFile(filePath);
+        Log.info("Step 3: Upload file 'logo.png' từ resources");
+        String shownPath = uploadfile.uploadFromResources("logo.png");
 
         Log.info("Step 4: Verify kết quả hiển thị có đuôi 'logo.png'");
-        Assert.assertTrue(uploadDownload.isFileUploadedSuccessfully("logo.png"),
-                " Kết quả upload KHÔNG hiển thị đúng tên file!");
+        Assert.assertTrue(shownPath.endsWith("logo.png"),
+                "Kết quả hiển thị không khớp với tên file logo.png");
     }
     @Test(priority = 8, description = "DQ-DY-001 | Verify button 'Will enable 5 seconds' is disabled first and enabled after ~5s")
     public void DQ_DY_001() {
@@ -205,8 +188,6 @@ public class ForToElementsTest extends BaseTest {
         homePage.clickOnMenu("Forms");
         menuLeft.clickOnMenuLeft("Practice Form");
 
-        PracticeFormAction form = new PracticeFormAction(driver);
-
         Log.info("Step 2: Điền form hợp lệ");
         form.fillForm("Minh", "Le", "minh@example.com", "0987654321");
 
@@ -214,7 +195,7 @@ public class ForToElementsTest extends BaseTest {
         form.clickSubmit();
 
         Log.info("Step 4: Verify modal hiển thị và chứa dữ liệu nhập");
-        Assert.assertTrue(form.isModalDisplayed(), "Modal không hiển thị sau khi Submit!");
+        Assert.assertTrue(form.isModalDisplayed(), " Modal không hiển thị sau khi Submit!");
         Assert.assertTrue(
                 form.verifyModalContainsData("Minh", "Le", "minh@example.com", "Male", "0987654321"),
                 "Modal không chứa đúng dữ liệu!"

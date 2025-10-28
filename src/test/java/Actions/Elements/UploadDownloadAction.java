@@ -18,16 +18,16 @@ public class UploadDownloadAction extends BasePage {
         this.driver = driver;
     }
 
-    public void uploadFile(String filePath) {
-        Log.info("Upload file từ đường dẫn: " + filePath);
-        waitForElementIsVisible(driver, UploadDownloadInterface.UPLOAD_INPUT);
-        sendKeysToElement(driver, UploadDownloadInterface.UPLOAD_INPUT, filePath);
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        wait.until(ExpectedConditions.textToBePresentInElementLocated(
-                By.id(UploadDownloadInterface.UPLOAD_RESULT), "C:\\temp\\logo.png"
-        ));
-    }
+//    public void uploadFile(String filePath) {
+//        Log.info("Upload file từ đường dẫn: " + filePath);
+//        waitForElementIsVisible(driver, UploadDownloadInterface.UPLOAD_INPUT);
+//        sendKeysToElement(driver, UploadDownloadInterface.UPLOAD_INPUT, filePath);
+//
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+//        wait.until(ExpectedConditions.textToBePresentInElementLocated(
+//                By.id(UploadDownloadInterface.UPLOAD_RESULT), "C:\\temp\\logo.png"
+//        ));
+//    }
 
 
     public String getUploadedFileText() {
@@ -41,4 +41,37 @@ public class UploadDownloadAction extends BasePage {
         Log.info("Text hiển thị sau upload: " + text);
         return text.endsWith(fileName);
     }
+    public String uploadFromResources(String resourcePath) {
+        Log.info("Thử load file upload: " + resourcePath);
+        java.net.URL url = Thread.currentThread()
+                .getContextClassLoader()
+                .getResource(resourcePath);
+
+        java.nio.file.Path fileToUpload = null;
+
+        try {
+            if (url != null) {
+                java.nio.file.Path temp = java.nio.file.Files.createTempFile("upload_", "_" + resourcePath.replace("/", "_"));
+                try (java.io.InputStream in = url.openStream()) {
+                    java.nio.file.Files.copy(in, temp, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+                }
+                fileToUpload = temp;
+                Log.info("Đã lấy từ classpath và copy ra file tạm: " + fileToUpload.toAbsolutePath());
+            } else {
+                throw new RuntimeException("Không tìm thấy file trong classpath: " + resourcePath);
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Lỗi khi chuẩn bị file upload: " + e.getMessage(), e);
+        }
+
+        waitForElementPresent(driver,UploadDownloadInterface.UPLOAD_INPUT);
+        driver.findElement(getXpath(UploadDownloadInterface.UPLOAD_INPUT))
+                .sendKeys(fileToUpload.toAbsolutePath().toString());
+
+        waitForElementPresent(driver, UploadDownloadInterface.UPLOAD_RESULT);
+        String shown = getTextElement(driver, UploadDownloadInterface.UPLOAD_RESULT);
+        Log.info("Đường dẫn hiển thị sau upload: " + shown);
+        return shown;
+    }
+
 }

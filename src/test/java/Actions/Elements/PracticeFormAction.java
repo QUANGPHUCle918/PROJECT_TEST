@@ -31,25 +31,27 @@ public class PracticeFormAction  extends BasePage {
 
     public void clickSubmit() {
         Log.info("Click nút Submit");
-        scrollIntoView(driver, PracticeFormInterface.SUBMIT_BUTTON);
-        clickToElementByJS(driver, PracticeFormInterface.SUBMIT_BUTTON);
-        sleepInSecond(2);
+        scrollIntoView(driver,PracticeFormInterface. SUBMIT_BUTTON);
+        clickToElementByJS(driver,PracticeFormInterface.SUBMIT_BUTTON );
+        waitForElementIsVisible(driver,PracticeFormInterface.MODAL_CONTENT );
     }
 
     public boolean isModalDisplayed() {
         Log.info("Kiểm tra modal hiển thị sau khi submit");
-        return isDisplayElement(driver, PracticeFormInterface.MODAL_TITLE);
+        return isDisplayElement(driver,PracticeFormInterface.MODAL_CONTENT);
     }
 
     public boolean verifyModalContainsData(String... expectedValues) {
         Log.info("Kiểm tra modal chứa đúng dữ liệu đã nhập");
-        String modalText = getTextElement(driver, PracticeFormInterface.MODAL_CONTENT);
+        String modalText = getTextElement(driver,PracticeFormInterface.MODAL_CONTENT ).trim();
+
         for (String value : expectedValues) {
             if (!modalText.contains(value)) {
-                Log.error("Không tìm thấy giá trị: " + value + " trong modal");
+                Log.error(" Không tìm thấy giá trị: " + value + " trong modal");
                 return false;
             }
         }
+        Log.info(" Modal chứa đúng tất cả dữ liệu");
         return true;
     }
 }

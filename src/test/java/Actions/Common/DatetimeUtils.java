@@ -1,56 +1,86 @@
 package Actions.Common;
 
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
+import java.util.Objects;
 
 public class DatetimeUtils {
 
-    // Lấy ngày hiện tại (yyyy-MM-dd)
-    public static String getCurrentDate() {
-        return LocalDate.now().toString();
-    }
+    public final class DateTimeUtils {
+        private static final ZoneId DEFAULT_ZONE = ZoneId.systemDefault();
 
-    // Lấy giờ hiện tại (HH:mm:ss)
-    public static String getCurrentTime() {
-        return LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-    }
+        private static final DateTimeFormatter DEFAULT_DT = DateTimeFormatter.ofPattern("uuuu-MM-dd HH:mm:ss");
+        private static final DateTimeFormatter DEFAULT_DATE = DateTimeFormatter.ofPattern("uuuu-MM-dd");
+        private static final DateTimeFormatter DEFAULT_TIME = DateTimeFormatter.ofPattern("HH:mm:ss");
 
-    // Lấy ngày giờ theo định dạng tự chọn
-    public static String getCurrentDateTime(String pattern) {
-        return LocalDateTime.now().format(DateTimeFormatter.ofPattern(pattern));
-    }
+        private DateTimeUtils() {
+        }
 
-    // Lấy timestamp hiện tại (millisecond)
-    public static long getCurrentTimestamp() {
-        return System.currentTimeMillis();
-    }
+        public static String getCurrentDateTime() {
+            return LocalDateTime.now(DEFAULT_ZONE).format(DEFAULT_DT);
+        }
 
-    // Parse chuỗi thành LocalDateTime theo pattern
-    public static LocalDateTime parseDateTime(String dateTime, String pattern) {
-        return LocalDateTime.parse(dateTime, DateTimeFormatter.ofPattern(pattern));
-    }
+        public static String getCurrentDateTime(String pattern) {
+            String strictPattern = pattern.replace("yyyy", "uuuu");
+            DateTimeFormatter fmt = DateTimeFormatter.ofPattern(strictPattern);
+            return LocalDateTime.now(DEFAULT_ZONE).format(fmt);
+        }
 
-    // Cộng thêm số ngày vào ngày hiện tại
-    public static String addDays(String date, String pattern, long days) {
-        LocalDate localDate = LocalDate.parse(date, DateTimeFormatter.ofPattern(pattern));
-        return localDate.plusDays(days).format(DateTimeFormatter.ofPattern(pattern));
-    }
+        public static String getCurrentDate() {
+            return LocalDate.now(DEFAULT_ZONE).format(DEFAULT_DATE);
+        }
 
-    // Cộng thêm giờ vào thời gian hiện tại
-    public static String addHours(String dateTime, String pattern, long hours) {
-        LocalDateTime localDateTime = parseDateTime(dateTime, pattern);
-        return localDateTime.plusHours(hours).format(DateTimeFormatter.ofPattern(pattern));
-    }
+        public static String getCurrentTime() {
+            return LocalTime.now(DEFAULT_ZONE).format(DEFAULT_TIME);
+        }
 
-    // Kiểm tra chuỗi có phải định dạng ngày giờ hợp lệ không
-    public static boolean isValidDateTime(String dateTime, String pattern) {
-        try {
-            parseDateTime(dateTime, pattern);
-            return true;
-        } catch (Exception e) {
-            return false;
+        public static LocalDateTime parseDateTime(String value, String pattern) {
+            try {
+                String strictPattern = Objects.requireNonNull(pattern).replace("yyyy", "uuuu");
+                DateTimeFormatter fmt = DateTimeFormatter
+                        .ofPattern(strictPattern)
+                        .withResolverStyle(ResolverStyle.STRICT);
+                return LocalDateTime.parse(Objects.requireNonNull(value), fmt);
+            } catch (DateTimeParseException ex) {
+                throw new IllegalArgumentException("Datetime không đúng định dạng: " + value + " | pattern=" + pattern, ex);
+            }
+        }
+
+        public static String addDays(String baseDateTime, String pattern, long days) {
+            String strictPattern = pattern.replace("yyyy", "uuuu");
+            DateTimeFormatter fmt = DateTimeFormatter.ofPattern(strictPattern).withResolverStyle(ResolverStyle.STRICT);
+            LocalDateTime ldt = parseDateTime(baseDateTime, pattern);
+            return ldt.plusDays(days).format(fmt);
+        }
+
+        public static String addHours(String baseDateTime, String pattern, long hours) {
+            String strictPattern = pattern.replace("yyyy", "uuuu");
+            DateTimeFormatter fmt = DateTimeFormatter.ofPattern(strictPattern).withResolverStyle(ResolverStyle.STRICT);
+            LocalDateTime ldt = parseDateTime(baseDateTime, pattern);
+            return ldt.plusHours(hours).format(fmt);
+        }
+
+        public static long getCurrentTimestamp() {
+            return Instant.now().toEpochMilli();
+        }
+
+        public static String fromTimestamp(long epochMillis, String pattern) {
+            // format không cần STRICT, nhưng vẫn đồng bộ uuuu để round-trip đẹp
+            String strictPattern = pattern.replace("yyyy", "uuuu");
+            DateTimeFormatter fmt = DateTimeFormatter.ofPattern(strictPattern).withZone(DEFAULT_ZONE);
+            return fmt.format(Instant.ofEpochMilli(epochMillis));
+        }
+
+        public static boolean isValidDateTime(String value, String pattern) {
+            try {
+                parseDateTime(value, pattern); // đã STRICT + uuuu bên trong
+                return true;
+            } catch (Exception e) {
+                return false;
+            }
         }
     }
 }

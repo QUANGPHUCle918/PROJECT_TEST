@@ -21,14 +21,14 @@ public class ButtonsAction extends BasePage {
         highlightElement(driver, ButtonsInterface.DOUBLE_CLICK_BUTTON);
         Actions actions = new Actions(driver);
         actions.doubleClick(button).perform();
-        sleepInSecond((long) 1.5);
+        sleepInSecond(2);
     }
-
 
     public String getDoubleClickMessage() {
         waitForElementIsVisible(driver, ButtonsInterface.DOUBLE_CLICK_MESSAGE);
         highlightElement(driver, ButtonsInterface.DOUBLE_CLICK_MESSAGE);
-
+        sleepInSecond(1);
         return getElement(driver, ButtonsInterface.DOUBLE_CLICK_MESSAGE).getText().trim();
+
     }
 }

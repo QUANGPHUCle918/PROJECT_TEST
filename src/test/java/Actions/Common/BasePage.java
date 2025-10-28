@@ -1,3 +1,4 @@
+
 package Actions.Common;
 
 import Common.GlobalVariables;
@@ -9,9 +10,6 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
-//import static Actions.Common.BaseTest.driver;
-
 /**
  * BasePage - Class cơ sở cho toàn bộ Page Object
  * Chứa toàn bộ hàm xử lý Locator, Element, Actions, Alert, Frame, Dropdown, Tab...
@@ -21,9 +19,6 @@ public class BasePage {
     protected WebDriverWait wait;
     protected Actions actions;
     protected JavascriptExecutor js;
-
-//    public BasePage(WebDriver driver) {
-//    }
 
     // Constructor
     //1. getXpath
@@ -175,31 +170,31 @@ public class BasePage {
     }
 
     //24. rightClickOnElement
-    public void rightClickOnElement(WebDriver driver, String xpath) {
+    public void rightClickOnElement(WebDriver driver,String xpath) {
         actions = new Actions(driver);
         waitForElementIsVisible(driver, xpath);
-        actions.contextClick(getElement(driver, xpath)).perform();
+        actions.contextClick(getElement(driver,xpath)).perform();
     }
 
     //25. rightClickOnElement (params)
-    public void rightClickOnElement(WebDriver driver, String xpath, String... params) {
+    public void rightClickOnElement(WebDriver driver,String xpath, String... params) {
         actions = new Actions(driver);
         waitForElementIsVisible(driver, xpath);
         actions.contextClick(getDynamicElement(driver, xpath, params)).perform();
     }
 
     //26. doubleClickOnElement
-    public void doubleClickOnElement(WebDriver driver, String xpath) {
+    public void doubleClickOnElement(WebDriver driver,String xpath) {
         actions = new Actions(driver);
         waitForElementIsVisible(driver, xpath);
         actions.doubleClick(getElement(driver, xpath)).perform();
     }
 
     //27. doubleClickOnElement (params)
-    public void doubleClickOnElement(WebDriver driver, String xpath, String... params) {
+    public void doubleClickOnElement(WebDriver driver,String xpath, String... params) {
         actions = new Actions(driver);
         waitForElementIsVisible(driver, xpath);
-        actions.doubleClick(getDynamicElement(driver, xpath, params)).perform();
+        actions.doubleClick(getDynamicElement(driver,xpath, params)).perform();
     }
 
     //28. dragAndDropElement
@@ -217,8 +212,8 @@ public class BasePage {
     }
 
     //30. pressKeyToElement (params)
-    public void pressKeyToElement(WebDriver driver, String xpath, Keys key, String... params) {
-        getDynamicElement(driver, xpath, params).sendKeys(key);
+    public void pressKeyToElement(WebDriver driver,String xpath,Keys key, String... params) {
+        getDynamicElement(driver,xpath, params).sendKeys(key);
     }
 
     //31. getTextElement
@@ -236,7 +231,7 @@ public class BasePage {
     //33. getElementAttributeValue
     public String getElementAttributeValue(WebDriver driver, String xpath, String attribute) {
         waitForElementIsVisible(driver, xpath);
-        return getElement(driver, xpath).getAttribute(attribute);
+        return getElement(driver,xpath).getAttribute(attribute);
     }
 
     //34. getElementAttributeValue (params)
@@ -271,7 +266,7 @@ public class BasePage {
     public boolean isDisplayElement(WebDriver driver, String xpath, String... params) {
         waitForElementIsVisible(driver, xpath, params);
         try {
-            return getDynamicElement(driver, xpath, params).isDisplayed();
+            return getDynamicElement(driver,xpath, params).isDisplayed();
         } catch (Exception e) {
             return false;
         }
@@ -490,7 +485,6 @@ public class BasePage {
             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", el);
         }
     }
-
     // 70. clickReliable
     public void clickReliable(WebDriver driver, String xpath, String... params) {
         waitForElementIsVisible(driver, xpath, params);
@@ -565,99 +559,76 @@ public class BasePage {
         }
         return texts;
     }
+    //78. // chờ element có trong DOM (không cần visible)
+    public void waitForElementPresent(WebDriver driver, String xpath, String... params) {
+        wait = new WebDriverWait(driver, Duration.ofSeconds(GlobalVariables.SHORT_TIMEOUT));
+        wait.until(ExpectedConditions.presenceOfElementLocated(getDynamicXpath(xpath, params)));
+    }
 
-    public void sleepInSecond(long timeInSecond) {
+    public void waitForTextPresent(WebDriver driver, String xpath, String expected, String... params) {
+        By by = getDynamicXpath(xpath, params);
+        new WebDriverWait(driver, Duration.ofSeconds(GlobalVariables.LONG_TIMEOUT))
+                .until(ExpectedConditions.textToBePresentInElementLocated(by, expected));
+    }
+    public boolean isElementDisplayed(WebDriver driver, String locator, String... dynamicValues) {
         try {
-            Thread.sleep(timeInSecond * 1000);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-            e.printStackTrace();
-        }
-
-    }
-    // 78. hideGoogleAdsIframe (ẩn quảng cáo gây cản trở click)
-    public void hideGoogleAdsIframe(WebDriver driver) {
-        try {
-            ((JavascriptExecutor) driver).executeScript(
-                    "document.querySelectorAll('iframe[id^=\"google_ads_iframe_\"]').forEach(el => el.style.display='none');"
-            );
-        } catch (Exception e) {
-            System.out.println("Không tìm thấy iframe quảng cáo để ẩn!");
-        }
-    }
-
-    // 79. clickSmartly - tự động xử lý iframe + overlay trước khi click
-    public void clickSmartly(WebDriver driver, String xpath, String... params) {
-        waitForElementIsVisible(driver, xpath, params);
-        scrollIntoView(driver, xpath, params);
-
-        for (int i = 0; i < 3; i++) {
-            try {
-                waitForElementClickable(driver, xpath, params);
-                hideGoogleAdsIframe(driver); // Ẩn iframe quảng cáo nếu có
-                dismissStickyOverlaysIfAny(driver); // Ẩn overlay khác
-                getDynamicElement(driver, xpath, params).click();
-                return;
-            } catch (ElementClickInterceptedException e) {
-                System.out.println("Bị chặn click, thử lại lần " + (i + 1));
-                hideGoogleAdsIframe(driver);
-                dismissStickyOverlaysIfAny(driver);
-                SleepInSeconds(1);
-            } catch (Exception e) {
-                System.out.println("Lỗi clickSmartly: " + e.getMessage());
-            }
-        }
-
-        // Nếu vẫn lỗi thì fallback dùng JavaScript click
-        System.out.println("Click thông thường thất bại → Dùng JavaScript click!");
-        clickToElementByJS(driver, xpath, params);
-    }
-    public void sendKeysToElement(WebDriver driver, String xpath, String text, String... params) {
-        xpath = String.format(xpath, (Object[]) params);
-        waitForElementIsVisible(driver, xpath);
-        WebElement element = getElement(driver, xpath);
-        element.clear();
-        element.sendKeys(text);
-    }
-    public void uploadFile(WebDriver driver, String xpath, String filePath, String... params) {
-        xpath = String.format(xpath, (Object[]) params);
-        waitForElementIsVisible(driver, xpath);
-        WebElement uploadInput = getElement(driver, xpath);
-        uploadInput.sendKeys(filePath);
-        Common.Log.info("Đã upload file: " + filePath);
-    }
-    // bỏ qua chặn quảng cáo
-    public void clickByJS(WebDriver driver, String xpath) {
-        WebElement element = driver.findElement(By.xpath(xpath));
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();", element);
-    }
-    public void scrollToElement(WebDriver driver, By locator) {
-        WebElement element = driver.findElement(locator);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-    }
-    public boolean isElementEnabled(WebDriver driver, String xpathLocator) {
-        try {
-            WebElement element = driver.findElement(By.xpath(xpathLocator));
-            return element.isEnabled();
+            String finalLocator = String.format(locator, (Object[]) dynamicValues);
+            WebElement element = driver.findElement(By.xpath(finalLocator));
+            return element.isDisplayed();
         } catch (Exception e) {
             return false;
         }
     }
-    public void selectItemInDropdown(WebDriver driver, String xpath, String visibleText) {
-        WebElement dropdown = driver.findElement(By.xpath(xpath));
-        new Select(dropdown).selectByVisibleText(visibleText);
+    public void sleepInSecond(long timeInSecond) {
+        try {
+            Thread.sleep(timeInSecond * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    public void selectItemInDropdown(WebDriver driver, String parentXpath, String itemText) {
+        driver.findElement(By.xpath(parentXpath)).click();
+        String itemXpath = String.format("//div[contains(@class,'option') and text()='%s']", itemText);
+        WebDriverWait explicitWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(itemXpath)));
+        driver.findElement(By.xpath(itemXpath)).click();
+    }
+    public boolean isElementEnabled(WebDriver driver, String xpathLocator, String... params) {
+        WebElement element = getDynamicElement(driver, xpathLocator, params);
+        return element.isEnabled();
+    }
+    public void sendKeysToElement(WebDriver driver, String xpathLocator, String value, String... params) {
+        WebElement element = getDynamicElement(driver, xpathLocator, params);
+        element.clear();
+        element.sendKeys(value);
+    }
+    private By getByLocator(String locatorType) {
+        if (locatorType.startsWith("//") || locatorType.startsWith("(//")) {
+            return By.xpath(locatorType);
+        } else if (locatorType.startsWith("css=")) {
+            return By.cssSelector(locatorType.replace("css=", ""));
+        } else if (locatorType.startsWith("id=")) {
+            return By.id(locatorType.replace("id=", ""));
+        } else if (locatorType.startsWith("name=")) {
+            return By.name(locatorType.replace("name=", ""));
+        } else if (locatorType.startsWith("class=")) {
+            return By.className(locatorType.replace("class=", ""));
+        } else {
+            throw new RuntimeException("Không xác định được loại locator: " + locatorType);
+        }
+    }
+
+    public void waitForElementPresence(WebDriver driver, String locator, String... params) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(GlobalVariables.SHORT_TIMEOUT));
+        By byLocator = getByLocator(getDynamicLocator(locator, params));
+        wait.until(ExpectedConditions.presenceOfElementLocated(byLocator));
     }
 
 
 
+
+
+
+
+
 }
-
-
-
-
-
-
-
-
-
